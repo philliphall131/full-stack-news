@@ -1,0 +1,27 @@
+[
+  {
+    "label": "BEST",
+    "title": "Best Stories",
+    "value": "beststories"
+  },
+  {
+    "label": "NEW",
+    "title": "New Stories",
+    "value": "newstories"
+  },
+  {
+    "label": "ASK",
+    "title": "Ask News Room Stories",
+    "value": "askstories"
+  },
+  {
+    "label": "SHOW",
+    "title": "Show the News Room your Stories",
+    "value": "showstories"
+  },
+  {
+    "label": "JOB",
+    "title": "Job Stories",
+    "value": "jobstories"
+  }
+]

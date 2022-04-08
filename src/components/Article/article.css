@@ -1,0 +1,11 @@
+.article {
+  display: flex;
+}
+
+.article > * {
+  padding: 20px;
+}
+
+.article-card {
+  padding: 30px;
+}

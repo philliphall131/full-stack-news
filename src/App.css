@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+#main-body {
+  background-color: grey;
+  min-height: 100vh;
+}
+
+#main-content {
+  background-color: white;
+  border-radius: 10px;
+  min-height: 85vh;
+}
