@@ -14,25 +14,27 @@ function AppNav(props) {
         <Navbar.Brand href="#">The News Room</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Container>
-            <Nav className="me-auto">
+          <Nav className="me-auto">
               { props.navItems.map(
                   (navItem, index)=>{ return (
                       <Nav.Link href={`#/sections/${navItem.value}`} key={index}>
                             {navItem.label}  
                       </Nav.Link>
                   )})}
-            </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search by Title"
-                className="me-2"
-                aria-label="Search"
-                onChange={ (e)=> {handleSearch(e.target.value)} }
-              />
-            </Form>
-          </Container>
+              <Form className="d-flex">
+                <FormControl
+                  type="search"
+                  placeholder="Search by Title"
+                  className="me-2"
+                  aria-label="Search"
+                  onChange={ (e)=> {handleSearch(e.target.value)} }
+                />
+              </Form>
+            <Nav.Link  href="#/signup">Sign Up</Nav.Link>
+            <Nav.Link  href="#/login">Log in</Nav.Link>
+            {/* { props.appState.user && <Nav.Link  href="#/preferences">Preferences</Nav.Link> }
+            { props.appState.user && <button onClick={()=>{logOut(props.setAppState)}}>Log Out</button> } */}
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

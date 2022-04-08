@@ -77,6 +77,7 @@ function App() {
                 setArticleType={setArticleType} 
                 sections={sections}/>}
             />
+            <Route path="/signup" element={<Signup appState={appState} setAppState={setAppState}/>} />
             <Route path="/articles/:articleID" element={<ArticlePage />} />
           </Routes>
         </Router>

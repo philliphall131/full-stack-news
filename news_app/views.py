@@ -18,3 +18,12 @@ from .models import Preference
 def send_the_homepage(request):
     theIndex = open('build/index.html').read()
     return HttpResponse(theIndex)
+
+@api_view(['POST'])
+def sign_up(request):
+    try:
+        User.objects.create_user(username=request.data['email'], password=request.data['password'], email=request.data['email'])
+        return HttpResponse('success!')
+    except Exception as e:
+        print(str(e))
+        return HttpResponse('failed to register')
