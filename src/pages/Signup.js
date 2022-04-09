@@ -4,26 +4,28 @@ import axios from 'axios';
 const Signup = function (props) {
 
     const handleChange = function(event){
-        props.setAppState((currentState)=>{
-            return {
-                ...currentState,
-                signupForm: {
-                    ...currentState.signupForm,
-                    [event.target.name]: event.target.value,
-                }
-            }
-        })
+        // props.setAppState((currentState)=>{
+        //     return {
+        //         ...currentState,
+        //         signupForm: {
+        //             ...currentState.signupForm,
+        //             [event.target.name]: event.target.value,
+        //         }
+        //     }
+        // })
+        return
     }
 
     const submitSignupForm = function(event){
-        event.preventDefault();
-        // const csrfToken = getCSRFToken()
-        // const requestConfig = {
-        //     headers: {"X-CSRFToken": csrfToken}
-        // }
-        axios.post('/signup', props.appState.signupForm).then((response)=>{
-            console.log('response from server: ', response)
-        })
+        // event.preventDefault();
+        // // const csrfToken = getCSRFToken()
+        // // const requestConfig = {
+        // //     headers: {"X-CSRFToken": csrfToken}
+        // // }
+        // axios.post('/signup', props.appState.signupForm).then((response)=>{
+        //     console.log('response from server: ', response)
+        // })
+        return
     }
 
     console.log('props in register? ', props)

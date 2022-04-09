@@ -1,5 +1,6 @@
 import { Navbar, Container, Nav, Form, FormControl } from 'react-bootstrap';
 import _ from "lodash";
+import './appNav.css'
 
 function AppNav(props) {
 
@@ -9,19 +10,23 @@ function AppNav(props) {
   }, 500)
 
   return (
+    
     <Navbar bg="dark" variant="dark" sticky="top" expand="md">
-      <Container>
+      <Container fluid>
         <Navbar.Brand href="#">The News Room</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Container id="nav1">
               { props.navItems.map(
                   (navItem, index)=>{ return (
                       <Nav.Link href={`#/sections/${navItem.value}`} key={index}>
                             {navItem.label}  
                       </Nav.Link>
                   )})}
-              <Form className="d-flex">
+            </Container>
+            <Container id="nav2">
+              <Form className="d-flex mx-3">
                 <FormControl
                   type="search"
                   placeholder="Search by Title"
@@ -31,13 +36,14 @@ function AppNav(props) {
                 />
               </Form>
             <Nav.Link  href="#/signup">Sign Up</Nav.Link>
-            <Nav.Link  href="#/login">Log in</Nav.Link>
-            {/* { props.appState.user && <Nav.Link  href="#/preferences">Preferences</Nav.Link> }
-            { props.appState.user && <button onClick={()=>{logOut(props.setAppState)}}>Log Out</button> } */}
+            <Nav.Link  href="#/login">Log In</Nav.Link>
+            <Nav.Link  href="#/logout">Log Out</Nav.Link>
+            </Container>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    
   )
 }
 

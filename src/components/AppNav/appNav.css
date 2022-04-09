@@ -1,3 +1,16 @@
 .bar {
   background-color: #dddddd;
 }
+
+.navbar-nav {
+  width: 100%;
+  justify-content: space-between;
+}
+
+#nav1 {
+  justify-content: left;
+}
+
+#nav2 {
+  justify-content: right;
+}

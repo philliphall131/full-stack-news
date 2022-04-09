@@ -1,24 +1,16 @@
 import Article from '../components/Article/Article.js'
-import axios from "axios";
+import { fetchArticleByID } from '../api/ArticlesAPI.js';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-
-export const getData = (articleId)=>{
-  return axios.get(`https://hacker-news.firebaseio.com/v0/item/${articleId}.json`).then((response)=>{
-    return response
-  })
-}
 
 function ArticlePage() {
   const params = useParams()
   let articleId = params.articleID;
   const [article, setArticle] = useState(null)
 
-  useEffect(()=> {
-    getData(articleId).then((response)=>{
-      setArticle(response.data)
-    })
+  useEffect( async () => {
+    setArticle(await fetchArticleByID(articleId))
   }, [articleId])
 
   return (
