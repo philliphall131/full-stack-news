@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import *
 
-admin.site.register([AppUser, Preference])
+admin.site.register(AppUser, UserAdmin)
+
+admin.site.register([Preference])

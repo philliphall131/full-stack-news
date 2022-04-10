@@ -1,11 +1,3 @@
-# from rest_framework import viewsets
-# from .serializers import *
-# from .models import *
-
-# class PreferenceViewSet(viewsets.ModelViewSet):
-#     queryset = Preference.objects.all()
-#     serializer_class = PreferenceSerializer
-
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from rest_framework.decorators import api_view
@@ -27,3 +19,34 @@ def sign_up(request):
     except Exception as e:
         print(str(e))
         return HttpResponse('failed to register')
+
+@api_view(['POST'])
+def log_in(request):
+    username = request.data['username']
+    password = request.data['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:    
+        try:
+            # access the base request, not DRF request (starts a login session for user)   
+            login(request._request, user)
+        except Exception as e:
+            print(str(e))
+        # Don't send everything from user, only what app needs to use for state
+        print('youre logged in now')
+        return JsonResponse({"username":user.username})             
+    else:
+        return HttpResponse('no user!')
+
+@api_view(["GET"])
+def who_am_i(request):
+    if request.user.is_authenticated:
+        print('already logged in')
+        return JsonResponse({"user":request.user.username})
+    print('no user logged in')
+    return JsonResponse({"user":None})
+    
+@api_view(['POST'])
+def log_out(request):
+    logout(request)
+    print('I logged you out')
+    return HttpResponse('Logged you out!')

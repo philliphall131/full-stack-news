@@ -1,4 +1,5 @@
 import { Navbar, Container, Nav, Form, FormControl } from 'react-bootstrap';
+import { logOut } from '../../utils/utils';
 import _ from "lodash";
 import './appNav.css'
 
@@ -35,9 +36,10 @@ function AppNav(props) {
                   onChange={ (e)=> {handleSearch(e.target.value)} }
                 />
               </Form>
-            <Nav.Link  href="#/signup">Sign Up</Nav.Link>
-            <Nav.Link  href="#/login">Log In</Nav.Link>
-            <Nav.Link  href="#/logout">Log Out</Nav.Link>
+              { props.user && <Nav.Link  href="#/preferences">Preferences</Nav.Link>}
+              { !props.user && <Nav.Link href="#/signup">Sign Up</Nav.Link>}
+              { !props.user && <Nav.Link href="#/login">Log In</Nav.Link>}
+              <Nav.Link onClick={logOut} href="#/">Log Out</Nav.Link>
             </Container>
           </Nav>
         </Navbar.Collapse>

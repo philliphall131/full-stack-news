@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from key import *
+from .key import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

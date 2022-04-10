@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;  
 }
 
 #main-body {
@@ -11,4 +13,11 @@
   background-color: white;
   border-radius: 10px;
   min-height: 85vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  width: 160px;
 }
