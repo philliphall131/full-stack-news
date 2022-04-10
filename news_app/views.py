@@ -14,8 +14,11 @@ def send_the_homepage(request):
 @api_view(['POST'])
 def sign_up(request):
     try:
-        User.objects.create_user(username=request.data['email'], password=request.data['password'], email=request.data['email'])
-        return HttpResponse('success!')
+        username = request.data['username']
+        password = request.data['password']
+        email = request.data['email']
+        User.objects.create_user(username=username, password=password, email=email)
+        return JsonResponse({"username":username})
     except Exception as e:
         print(str(e))
         return HttpResponse('failed to register')

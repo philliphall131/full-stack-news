@@ -16,10 +16,10 @@ const getCSRFToken = ()=>{
 }
 axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
 
-export const logIn = (userName, passWord) => {
+export const logIn = (username, password) => {
   let params = {
-    username : userName,
-    password : passWord
+    'username' : username,
+    'password' : password
   }
 
   axios.post('login/', params).then((response)=>{ 
@@ -42,4 +42,18 @@ export const whoAmI = async (setUser) => {
 
   const user = response.data.user
   setUser(user)
+}
+
+export const signup = async (username, email, password) => {
+  let params = {
+    'username' : username,
+    'password' : password,
+    'email': email
+  }
+  axios.post('signup/', params).then((response)=>{ 
+    if (response.data.username){
+      logIn(username, password)
+    }
+  })
+  
 }
