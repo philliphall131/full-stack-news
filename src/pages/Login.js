@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { logIn } from '../utils/utils.js';
 
 const Login = function (props) {

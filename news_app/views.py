@@ -1,10 +1,9 @@
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from rest_framework.decorators import api_view
-
 from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
-from .models import Preference
+from .models import *
 
 # we're not using django templates anymore
 def send_the_homepage(request):
@@ -23,7 +22,7 @@ def sign_up(request):
         print(str(e))
         return HttpResponse('failed to register')
 
-@api_view(['POST'])
+
 def log_in(request):
     username = request.data['username']
     password = request.data['password']

@@ -9,7 +9,7 @@ export const formatTime = (time)=>{
 
 function Article(props) {
   return (
-    <Card className="article-card">
+    <Card className="article-card" >
       <Card.Title>
           <h3>{props.title}</h3><br />
           <h5>By: {props.by}</h5>

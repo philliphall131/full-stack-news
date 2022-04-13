@@ -24,7 +24,7 @@ function AppNav(props) {
                       <Nav.Link href={`#/sections/${navItem.value}`} key={index}>
                             {navItem.label}  
                       </Nav.Link>
-                  )})}
+              )})}
             </Container>
             <Container id="nav2">
               <Form className="d-flex mx-3">
